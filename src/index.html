@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="firstVue">
+人特人45345<br/>
+        {{myData}}
+        <my-component></my-component>
+    </div>
+    <script src="<%= htmlWebpackPlugin.options.dllJs + '?' + new Date().getTime() %>"></script>
+</body>
+</html>
