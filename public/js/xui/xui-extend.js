@@ -324,7 +324,7 @@ xui.extend({
             }
                 break;
         }
-        var html = '<div id="loading_page" class="loading_page" style="' + pageStyle + '"><div class="' + loadClass + '"></div></div>';
+        var html = '<div id="loading_page" class="loading_page" style="width:100%;height:100%;position: absolute;' + pageStyle + '"><div class="' + loadClass + '"></div></div>';
         this.top(html);
         return this;
     },
