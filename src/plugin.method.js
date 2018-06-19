@@ -233,7 +233,7 @@
             var pullDownEl = this.wrapper.find(".pullDown")[0];
             pullDownEl.setAttribute("name", '');
             pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新';
-            pullDownEl.childNodes[0].className = "pullDownIcon_xia";
+            pullDownEl.childNodes[0].className = "iconfont pullDownIcon_xia";
             as().showAlert(tip);
         },
         _iscroll_MoreTip:function(tip){
@@ -454,28 +454,29 @@
         _shownodata:function()
         {
             var nodataicon='<i class="iconfont icon-zanwushuju2"></i>';
-            x$(this.container[0].parentNode.parentNode).bottom('<div class="listmask">'+nodataicon+'</div>');
+            x$(this.container[0].parentNode).bottom('<div class="listmask">'+nodataicon+'</div>');
         },
         _showtip:function(tip)
         {
             as().showAlert(tip);
             this._shownodata();
             x$().hideloading();
+            as().iscroll.init(this);
         },
         _createListData:function(rows){
             var lastcount = (this.container.find("li").length) % this.pageCount;
             this._ListDetail(lastcount,rows);
         },
         _ListDetail:function(lastcount, objectdata){
-            for (var i = lastcount; i < objectdata.length; i++) {
                 //var guid = as().guidGenerator();
                 if(typeof (this.CreateDetail)!="undefined") {
+                    for (var i = lastcount; i < objectdata.length; i++) {
                     var rowdata=this.CreateDetail(objectdata[i]);
                     this.container.bottom(rowdata)
+                }
                 }else {
                     this._showtip("没有CreateDetail！");
                 }
-            }
         },
         _jsonpCallback:function(rows,total){
             try {

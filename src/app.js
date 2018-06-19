@@ -62,7 +62,7 @@ window.configure={
                         CreateDetail:function(item)
                         {
                             var ww=as().formatThousands(12323);
-                            var li="<p>a1231</p>";
+                            var li="<p>"+ww+"</p>";
                             return li;
                         }
                     });
