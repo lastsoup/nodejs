@@ -11,7 +11,7 @@ rt.get('/',async(ctx, next) => {
     let dataList = await sql2.query('SELECT * FROM t_dept');
     console.log(dataList);
     */
-    await ctx.render('index', { title : "csfds"});
+    await ctx.render('index', { title : "csfds3"});
 });
 
 module.exports = rt;
