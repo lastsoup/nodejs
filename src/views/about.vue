@@ -4,8 +4,8 @@
     <h3>about页面</h3>
     <div class='box'>
       <div class='heading'>
-        <span>item122</span>
-        <span>item222</span>
+        <span>item122uuu</span>
+        <span>item222ee</span>
       </div>
       <ul class='contain'>
         <li v-text='info'>contain1</li>
@@ -18,7 +18,7 @@
 </template>
 <script>
   var myComponent = {
-    template: '<div>A custom component!</div>'
+    template: '<div>A custom component33!</div>'
   }
   export default {
     name: 'aboutP',
