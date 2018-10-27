@@ -7,7 +7,7 @@
     export default {
         data () {
             return {
-                msg: 'Hello World!'
+                msg: 'Hello 6World!'
             }
         }
     }

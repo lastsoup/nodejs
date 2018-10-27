@@ -6,6 +6,6 @@ var myVue = new Vue({
     el:"#firstVue",
     components: {'my-component': index},
     data:{
-        myData:"vue:5444"
+        myData:"vue:5444778"
     }
 })
