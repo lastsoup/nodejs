@@ -32,7 +32,7 @@
     "scripts": {
         "dev": "webpack --config webpack.dll.js --progress && webpack && node server.js",
         "build": "cross-env NODE_ENV=production webpack --config webpack.dll.js --progress -p && cross-env NODE_ENV=production webpack --progress -p",
-        "publish": "npm build &&  cross-env NODE_ENV=production node server.js"
+        "publish": "npm run build &&  cross-env NODE_ENV=production node server.js"
     },
     "author": "陈清元",
     "license": "MIT",

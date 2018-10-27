@@ -15,6 +15,10 @@ var swig = require('swig');
 app.use(views(path.join(__dirname, './views'),{  extension: 'html',map: { html: 'swig' }}));
 var index = require('./routes/index');
 rt.use('/', index.routes());
+app.use(async (ctx, next) => {
+    ctx.state = Object.assign(ctx.state, { isProduction: isProduction });
+    await next();
+});
 app.use(rt.routes()).use(rt.allowedMethods());
 /**加载路由End*/
 /*错误页处理Start*/

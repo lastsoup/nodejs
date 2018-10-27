@@ -6,12 +6,20 @@
      <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
 </head>
 <body>
-    <div id="firstVue">路由测试页面4324
+    <div id="firstVue">路由测试页面
         {{myData}}
         <my-component></my-component>
     </div>
-    <script src="./dist/vendor/js/main.min.js"></script>
+    <!-- <script src="./dist/vendor/js/main.min.js"></script>
     <script type="text/javascript" src="/dist/js/commons.min.js"></script>
-    <script type="text/javascript" src="/dist/js/main.min.js"></script>
+    <script type="text/javascript" src="/dist/js/main.min.js"></script> -->
+
+    {% set extend= ""%}
+    {% if isProduction %}
+    {% set extend= ".min"%}
+    {% endif %}
+    <script src='./dist/vendor/js/main{{extend}}.js'></script>
+    <script type="text/javascript" src="/dist/js/commons{{extend}}.js"></script>
+    <script type="text/javascript" src="/dist/js/main{{extend}}.js"></script>
 </body>
 </html>
