@@ -2,13 +2,20 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var VARIABLE = require("./webpack.variable");
 
 module.exports = {
-  entry: './src/index.js',  
+  entry:VARIABLE.entry.main,//'./src/index.js',  
+  // output: {
+  //   path: path.resolve(__dirname, './dist'),
+  //   publicPath: '/dist/',
+  //   filename: 'dist.js'
+  // },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'dist.js'
+    path: VARIABLE.output.path,
+    filename: VARIABLE.output.filename,
+    publicPath: VARIABLE.output.publicPath
   },
   module: {
     rules: [
@@ -33,7 +40,8 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: '[name].[ext]?[hash]',
+          outputPath:VARIABLE.output.imgs
         }
       },
       {
@@ -63,7 +71,13 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("style.css")
+    new ExtractTextPlugin(VARIABLE.output.css),// 提取css
+    new HtmlWebpackPlugin({
+      filename: VARIABLE.htmlPlugin.filename,
+      template: VARIABLE.htmlPlugin.template,
+      inject: true,
+      hash: true
+    })
   ],
   devtool: '#eval-source-map'
 };

@@ -30,7 +30,7 @@ export default {
   name: 'app',
   data() {
     return {
-      msg: '欢迎学习45345vue1256546456.js',
+      msg: '欢迎学习vue.js',
       single: false
     }
   },
