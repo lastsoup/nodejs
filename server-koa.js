@@ -35,7 +35,7 @@ app.use(async (ctx) => {
         break;
     }
   })
-}
+}else{
 /*错误页处理End*/
 /**热加载Start 注：实现热加载自动刷新，修改代码及时呈现到浏览器上*/
 const compiler = webpack(config);
@@ -51,7 +51,7 @@ app.use(hotMiddleware(compiler, {
 
 app.use(ServeStatic(buildDir));
 /**热加载End*/
-
+}
 
 app.listen(server.post, () => {
     console.log(`服务器启动成功：${server.host + ":" + server.post}`)

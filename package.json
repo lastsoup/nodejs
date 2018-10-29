@@ -30,10 +30,11 @@
         "vue-template-compiler": "^2.3.2"
     },
     "scripts": {
-        "build": "cross-env NODE_ENV=production webpack --config webpack.dll.js --progress -p && cross-env NODE_ENV=production webpack --progress -p",
-        "dev": "webpack --config webpack.dll.js --progress && webpack && node server.js",
-        "debug": "webpack --config webpack.dll.js --progress && webpack && node server-koa.js",
-        "release": "npm run build &&  cross-env NODE_ENV=production node server-koa.js"
+        "build-p": "cross-env NODE_ENV=production webpack --config webpack.dll.js --progress -p && cross-env NODE_ENV=production webpack --progress -p",
+        "build-d": "webpack --config webpack.dll.js --progress && webpack",
+        "dev": "npm run build-d && node server.js",
+        "debug": "npm run build-d && node server-koa.js",
+        "release": "npm run build-p && cross-env NODE_ENV=production node server-koa.js"
     },
     "author": "陈清元",
     "license": "MIT",
