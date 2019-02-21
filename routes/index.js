@@ -1,16 +1,16 @@
 var Router = require('koa-router');
 var rt=new Router();
-var sql=require('../src/controllers/mssql-helper');
-var sql2=require('../src/controllers/mysql-helper');
+var mssql=require('../src/controllers/mssql-helper');
+var mysql=require('../src/controllers/mysql-helper');
 
 rt.get('/',async(ctx, next) => {
-    /* sql.query('select * from Ananas_User where ID=3939731393',function(data){
-        console.dir(data);
+    //MSSQL
+    mssql.querySql('select * from [User]',"",function(err, result){
+        console.dir(result);
     });
-
-    let dataList = await sql2.query('SELECT * FROM t_dept');
+    //MYSQL
+    let dataList = await mysql.query('SELECT * FROM t_dept where id="6f614220210811e8944f7faa904251e7"');
     console.log(dataList);
-    */
     await ctx.render('index', { title : "csfds3"});
 });
 
