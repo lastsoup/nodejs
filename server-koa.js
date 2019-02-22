@@ -9,16 +9,23 @@ const Koa = require('koa'),
 
 /**加载路由Start 注：无路由默认起始页面inde.html*/
 var Router = require('koa-router');
-var rt=new Router();
 var views = require('koa-views');
 var swig = require('swig');
 app.use(views(path.join(__dirname, './views'),{  extension: 'html',map: { html: 'swig' }}));
+//中间路由
 var index = require('./routes/index');
-rt.use('/', index.routes());
+var api = new Router()
+api.get('/404', async ( ctx )=>{
+  ctx.body = '404 page!'
+})
+// 装载所有子路由
+var rt=new Router();
 app.use(async (ctx, next) => {
     ctx.state = Object.assign(ctx.state, { isProduction: isProduction });
     await next();
 });
+rt.use('/', index.routes(),index.allowedMethods());
+rt.use('/api', api.routes(),api.allowedMethods());
 app.use(rt.routes()).use(rt.allowedMethods());
 /**加载路由End*/
 /*错误页处理Start*/
