@@ -23,10 +23,10 @@ rt.use('/', index.routes(),index.allowedMethods());
 rt.use('/api', api.routes(),api.allowedMethods());
 app.use(rt.routes()).use(rt.allowedMethods());
 //传递数据
-app.use(async (ctx, next) => {
-  ctx.state = Object.assign(ctx.state, { isProduction: isProduction });
-  await next();
-});
+// app.use(async (ctx, next) => {
+//   ctx.state = Object.assign(ctx.state, { isProduction: isProduction });
+//   await next();
+// });
 /**加载路由End*/
 /*错误页处理Start*/
 if(isProduction){

@@ -10,7 +10,7 @@ var pool  = mysql.createPool({
     database : 'ycyl'  // 选中数据库
 });
 
-sql.query = function( sql, values ) {
+sql.query = async function( sql, values ) {
     return new Promise(( resolve, reject ) => {
         pool.getConnection(function(err, connection) {
             if (err) {

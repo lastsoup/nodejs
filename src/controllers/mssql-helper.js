@@ -32,6 +32,8 @@ con.connect(err => {
     }
 });
 
+
+
 let querySql = async function (sql, params, callBack) {
     try{
         let ps = new mssql.PreparedStatement(con);
